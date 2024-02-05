@@ -1,5 +1,5 @@
 # Nest Graphql Filters
-Generate filters in a simple, automatic, and standardized way in the @nestjs framework and @nestjs/graphql using decorators.
+Generate filters in a simple, automatic and standardized way in the @nestjs framework and @nestjs/graphql using decorators.
 
 ## Installation
 
