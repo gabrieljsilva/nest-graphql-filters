@@ -14,8 +14,8 @@ yarn add @gabrieljsilva/nest-graphql-filters
 ## Usage
 The initial step involves declaring an entity, accomplished through a class and the utilization of the decorators: `FilterableEntity` and `FilterableField`.
 
-`FilterableEntity`: Marks a class as an entity.
-`FilterableField`: Marks a class property as a "filterable" field.
+- `FilterableEntity`: Marks a class as an entity.
+- `FilterableField`: Marks a class property as a "filterable" field.
 
 ex:
 ```ts
