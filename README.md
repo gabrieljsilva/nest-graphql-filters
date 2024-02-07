@@ -12,7 +12,32 @@ yarn add @gabrieljsilva/nest-graphql-filters
 ```
 
 ## Usage
-The initial step involves declaring an entity, accomplished through a class and the utilization of the decorators: `FilterableEntity` and `FilterableField`.
+First, it's necessary to register the module, where the registration method requires a mandatory 
+param called `databaseProvider`. This information is crucial in the subsequent serialization process.
+Ex:
+
+```typescript
+import { NestFilterModule } from '@gabrieljsilva/nest-graphql-filters';
+
+@Module({
+  imports: [
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'schema.gql')
+    }),
+    NestFilterModule.register('pg'),
+    // rest of imposts...
+  ],
+  controllers: [],
+  providers: [],
+  exports: [],
+})
+export class AppModule {}
+
+```
+
+
+After registering the module, the second step is to declare the entities using a class and applying the decorators: `FilterableEntity` and `FilterableField`.
 
 - `FilterableEntity`: Marks a class as an entity.
 - `FilterableField`: Marks a class property as a "filterable" field.
@@ -113,11 +138,13 @@ query FindUsers($filter: UserFilter) {
     "createdAt": {
       "gte": "2024-01-01" 
     },
-    "_NOT": {
-      "name": {
-        "is": "John Doe"
+    "_NOT": [
+      {
+        "name": {
+          "is": "John Doe"
+        }
       }
-    }
+    ]
   }  
 }
 ```
@@ -225,14 +252,18 @@ It's possible to use pipes to serialize the data received in the request.
 Ex:
 
 ```ts
+import { FilterOptions } from '@gabrieljsilva/nest-graphql-filters';
+
 export const ToPrismaQueryPipe = memoize<(type: Type) => PipeTransform>(
     createToPrismaQueryPipe,
 );
 
 function createToPrismaQueryPipe(type: Type): Type<PipeTransform> {
     class ToPrismaQueryPipe implements PipeTransform {
+        constructor(@Inject(FilterOptions) filterOptions: FilterOptions) {}
+
         async transform<T = unknown>(value: FilterOf<T>) {
-            if (!value){
+            if (!value) {
                 return {};
             }
             const fieldMetadata = FilterTypeMetadataStorage.getIndexedFieldsByType(type);
@@ -244,13 +275,17 @@ function createToPrismaQueryPipe(type: Type): Type<PipeTransform> {
             metadata: Map<string, FieldMetadata>,
             query = {},
         ) {
-           // Implements your query here
+            // Implements your query here
         }
     }
 
     return ToPrismaQueryPipe;
 }
 ```
+
+The property filterOptions contains the property named provider, which is the name of the database provider. 
+Since even among relational databases that use SQL, there are some differences in query construction, this information
+can assist in writing more generic pipes and facilitate the database switch at some point.
 
 To use pipes with parameters, it's necessary to create a function that returns the pipe class, or it's instance.
 By using this method, a new pipe is created for each implementation of the filter.

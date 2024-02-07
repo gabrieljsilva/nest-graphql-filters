@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NestFilterModule = exports.getIndexedFields = exports.getFilterOf = exports.getFieldMetadata = exports.FilterableEntity = exports.FilterArgs = exports.FilterableField = exports.FieldMetadata = exports.LOGICAL_OPERATORS = exports.COMPARISON_OPERATOR = void 0;
+exports.NestFilterModule = exports.getIndexedFields = exports.getFilterOf = exports.getFieldMetadata = exports.FilterableEntity = exports.FilterArgs = exports.FilterableField = exports.FieldMetadata = exports.LOGICAL_OPERATORS = exports.COMPARISON_OPERATOR = exports.FilterOptions = void 0;
+var filter_options_1 = require("./types/filter-options");
+Object.defineProperty(exports, "FilterOptions", { enumerable: true, get: function () { return filter_options_1.FilterOptions; } });
 var comparison_operators_1 = require("./enums/comparison-operators");
 Object.defineProperty(exports, "COMPARISON_OPERATOR", { enumerable: true, get: function () { return comparison_operators_1.COMPARISON_OPERATOR; } });
 var logical_operations_1 = require("./enums/logical-operations");

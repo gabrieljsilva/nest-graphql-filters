@@ -1,5 +1,6 @@
 import { GqlTypeReference } from "@nestjs/graphql";
 export type { FilterOf } from "./types/filter-of.type";
+export { DatabaseProvider, FilterOptions } from "./types/filter-options";
 export { COMPARISON_OPERATOR } from "./enums/comparison-operators";
 export { LOGICAL_OPERATORS } from "./enums/logical-operations";
 import { FieldMetadata } from "./types/field-metadata";
@@ -30,5 +31,5 @@ export declare const NestFilterModule: {
     new (): {
         onModuleInit(): void;
     };
-    register(): import("@nestjs/common").DynamicModule;
+    register(databaseProvider: import("./types/filter-options").DatabaseProvider): import("@nestjs/common").DynamicModule;
 };
