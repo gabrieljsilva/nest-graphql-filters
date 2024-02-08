@@ -35,8 +35,6 @@ import { NestFilterModule } from '@gabrieljsilva/nest-graphql-filters';
 export class AppModule {}
 
 ```
-
-
 After registering the module, the second step is to declare the entities using a class and applying the decorators: `FilterableEntity` and `FilterableField`.
 
 - `FilterableEntity`: Marks a class as an entity.
