@@ -26,7 +26,7 @@ import { NestFilterModule } from '@gabrieljsilva/nest-graphql-filters';
       autoSchemaFile: join(process.cwd(), 'schema.gql')
     }),
     NestFilterModule.register('pg'),
-    // rest of imposts...
+    // rest of imports...
   ],
   controllers: [],
   providers: [],
@@ -189,6 +189,7 @@ query FindUsers($filter: UserFilter) {
         photo {
             id
             url
+            category
         }
     }
 }
