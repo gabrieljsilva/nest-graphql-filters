@@ -14,24 +14,20 @@ const graphql_1 = require("@nestjs/graphql");
 const lazy_metadata_storage_1 = require("@nestjs/graphql/dist/schema-builder/storages/lazy-metadata.storage");
 const field_metadata_1 = require("../types/field-metadata");
 const create_enum_of_entity_fields_1 = require("./create-enum-of-entity-fields");
+const sort_direction_1 = require("../enums/sort-direction");
 const createSortableEntityDecorator = (storage) => {
-    let SortDirection;
-    (function (SortDirection) {
-        SortDirection["desc"] = "desc";
-        SortDirection["asc"] = "asc";
-    })(SortDirection || (SortDirection = {}));
-    (0, graphql_1.registerEnumType)(SortDirection, { name: "SortDirection" });
+    (0, graphql_1.registerEnumType)(sort_direction_1.SORT_DIRECTION, { name: "SortDirection" });
     return function SortableEntity() {
         return (target) => {
             const filterInputType = storage.typesToFilterMap.getValueByKey(target);
             const createSortableFieldFN = () => {
                 const fields = storage.fieldsByTarget.getValuesByKey(target);
                 const enumFields = (0, create_enum_of_entity_fields_1.createEnumOfEntityFields)(fields);
-                (0, graphql_1.registerEnumType)(enumFields, { name: `${target.name}Fields` });
+                (0, graphql_1.registerEnumType)(enumFields, { name: `${target.name}SortableFields` });
                 let OrderByField = class OrderByField {
                 };
                 __decorate([
-                    (0, graphql_1.Field)(() => SortDirection),
+                    (0, graphql_1.Field)(() => sort_direction_1.SORT_DIRECTION),
                     __metadata("design:type", String)
                 ], OrderByField.prototype, "direction", void 0);
                 __decorate([

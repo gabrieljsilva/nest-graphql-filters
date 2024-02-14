@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NestFilterModule = exports.getIndexedFields = exports.getFilterOf = exports.getFieldMetadata = exports.SortableEntity = exports.FilterableEntity = exports.FilterArgs = exports.FilterableField = exports.FieldMetadata = exports.LOGICAL_OPERATORS = exports.COMPARISON_OPERATOR = exports.FilterOptions = void 0;
+exports.NestFilterModule = exports.getIndexedFields = exports.getFilterOf = exports.getFieldMetadata = exports.SortableEntity = exports.FilterableEntity = exports.FilterArgs = exports.FilterableField = exports.FieldMetadata = exports.SORT_OPERATOR = exports.LOGICAL_OPERATORS = exports.COMPARISON_OPERATOR = exports.FilterOptions = void 0;
 var filter_options_1 = require("./types/filter-options");
 Object.defineProperty(exports, "FilterOptions", { enumerable: true, get: function () { return filter_options_1.FilterOptions; } });
 var comparison_operators_1 = require("./enums/comparison-operators");
 Object.defineProperty(exports, "COMPARISON_OPERATOR", { enumerable: true, get: function () { return comparison_operators_1.COMPARISON_OPERATOR; } });
 var logical_operations_1 = require("./enums/logical-operations");
 Object.defineProperty(exports, "LOGICAL_OPERATORS", { enumerable: true, get: function () { return logical_operations_1.LOGICAL_OPERATORS; } });
+var sort_operator_1 = require("./enums/sort-operator");
+Object.defineProperty(exports, "SORT_OPERATOR", { enumerable: true, get: function () { return sort_operator_1.SORT_OPERATOR; } });
 var field_metadata_1 = require("./types/field-metadata");
 Object.defineProperty(exports, "FieldMetadata", { enumerable: true, get: function () { return field_metadata_1.FieldMetadata; } });
 const filter_type_metadata_storage_1 = require("./types/filter-type-metadata-storage");

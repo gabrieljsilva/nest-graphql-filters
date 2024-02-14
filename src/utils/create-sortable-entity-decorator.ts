@@ -4,16 +4,12 @@ import { LazyMetadataStorage } from "@nestjs/graphql/dist/schema-builder/storage
 import { FilterTypeMetadataStorage } from "../types/filter-type-metadata-storage";
 import { FieldMetadata } from "../types/field-metadata";
 import { createEnumOfEntityFields } from "./create-enum-of-entity-fields";
+import { SORT_DIRECTION } from "../enums/sort-direction";
 
 export const createSortableEntityDecorator = (
   storage: FilterTypeMetadataStorage,
 ) => {
-  enum SortDirection {
-    "desc" = "desc",
-    "asc" = "asc",
-  }
-
-  registerEnumType(SortDirection, { name: "SortDirection" });
+  registerEnumType(SORT_DIRECTION, { name: "SortDirection" });
 
   return function SortableEntity() {
     return (target: NonNullable<any>) => {
@@ -23,12 +19,12 @@ export const createSortableEntityDecorator = (
         const fields = storage.fieldsByTarget.getValuesByKey(target);
 
         const enumFields = createEnumOfEntityFields(fields);
-        registerEnumType(enumFields, { name: `${target.name}Fields` });
+        registerEnumType(enumFields, { name: `${target.name}SortableFields` });
 
         @InputType(`${target.name}SortBy`)
         class OrderByField {
-          @Field(/* istanbul ignore next */ () => SortDirection)
-          direction: SortDirection;
+          @Field(/* istanbul ignore next */ () => SORT_DIRECTION)
+          direction: SORT_DIRECTION;
 
           @Field(/* istanbul ignore next */ () => [enumFields])
           fields: Array<ReturnType<typeof createEnumOfEntityFields>>;

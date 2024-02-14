@@ -11,6 +11,7 @@ import {
   LOGICAL_OPERATORS,
   FieldMetadata,
   FilterOptions,
+  SORT_OPERATOR,
 } from "../index";
 
 describe("index file tests", () => {
@@ -24,12 +25,13 @@ describe("index file tests", () => {
     expect(SortableEntity).toBeInstanceOf(Function);
     expect(FilterArgs).toBeInstanceOf(Function);
     expect(FilterableField).toBeInstanceOf(Function);
-
     expect(NestFilterModule).toBeInstanceOf(Function);
+
+    expect(FieldMetadata).toBeInstanceOf(Function);
+    expect(FilterOptions).toBeInstanceOf(Function);
 
     expect(COMPARISON_OPERATOR).toBeInstanceOf(Object);
     expect(LOGICAL_OPERATORS).toBeInstanceOf(Object);
-    expect(FieldMetadata).toBeInstanceOf(Function);
-    expect(FilterOptions).toBeInstanceOf(Function);
+    expect(SORT_OPERATOR).toBeInstanceOf(Object);
   });
 });

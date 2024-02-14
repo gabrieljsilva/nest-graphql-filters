@@ -4,6 +4,7 @@ export type { FilterOf } from "./types/filter-of.type";
 export { DatabaseProvider, FilterOptions } from "./types/filter-options";
 export { COMPARISON_OPERATOR } from "./enums/comparison-operators";
 export { LOGICAL_OPERATORS } from "./enums/logical-operations";
+export { SORT_OPERATOR } from "./enums/sort-operator";
 export { FieldMetadata } from "./types/field-metadata";
 
 import { FieldMetadata } from "./types/field-metadata";
