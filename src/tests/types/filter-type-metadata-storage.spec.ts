@@ -1,15 +1,16 @@
-import { Field, TypeMetadataStorage } from '@nestjs/graphql';
-import { LazyMetadataStorage } from '@nestjs/graphql/dist/schema-builder/storages/lazy-metadata.storage';
+import { Field, TypeMetadataStorage } from "@nestjs/graphql";
+import { LazyMetadataStorage } from "@nestjs/graphql/dist/schema-builder/storages/lazy-metadata.storage";
 
-import { FilterTypeMetadataStorage } from '../../types/filter-type-metadata-storage';
-import { BidirectionalMap } from '../../types/bidirectional-map';
-import { MultiMap } from '../../types/multimap';
-import { FieldMetadata } from '../../types/field-metadata';
-import { createFilterableFieldDecorator } from '../../utils/create-filterable-field-decorator';
-import { createGetFilterOf } from '../../utils/create-get-filter-of';
+import { FilterTypeMetadataStorage } from "../../types/filter-type-metadata-storage";
+import { BidirectionalMap } from "../../types/bidirectional-map";
+import { MultiMap } from "../../types/multimap";
+import { FieldMetadata } from "../../types/field-metadata";
+import { createFilterableFieldDecorator } from "../../utils/create-filterable-field-decorator";
+import { createGetFilterOf } from "../../utils/create-get-filter-of";
+import { StringFilter } from "../../filters/string.filter";
 
-jest.mock('@nestjs/graphql', () => {
-  const original = jest.requireActual('@nestjs/graphql');
+jest.mock("@nestjs/graphql", () => {
+  const original = jest.requireActual("@nestjs/graphql");
   return {
     ...original,
     Field: jest.fn(() => () => null),
@@ -20,14 +21,14 @@ jest.mock('@nestjs/graphql', () => {
   };
 });
 
-describe('filter type metadata storage tests', () => {
+describe("filter type metadata storage tests", () => {
   let storage: FilterTypeMetadataStorage;
   let FilterableField: ReturnType<typeof createFilterableFieldDecorator>;
   let getFilterOf: ReturnType<typeof createGetFilterOf>;
 
   beforeEach(() => {
     storage = new FilterTypeMetadataStorage({
-      typesToFilterMap: new BidirectionalMap(),
+      typesToFilterMap: new BidirectionalMap([[String, StringFilter]]),
       fieldsByTarget: new MultiMap(),
       fieldsToTypeIndexedByName: new Map(),
     });
@@ -42,7 +43,7 @@ describe('filter type metadata storage tests', () => {
     }
   });
 
-  it('Should create a FilterType and apply FieldDecorators', () => {
+  it("should create a FilterType and apply FieldDecorators", () => {
     class Cat {}
 
     storage.getOrCreateFilterType(Cat);
@@ -74,49 +75,63 @@ describe('filter type metadata storage tests', () => {
     }
   });
 
-  it('Should create a FilterType From a given class if storage is empty', () => {
+  it("should create a FilterType From a given class if storage is empty", () => {
     class Cat {}
     expect(storage.typesToFilterMap.getValueByKey(Cat)).toBe(undefined);
     const catFilter = storage.getOrCreateFilterType(Cat);
     expect(catFilter).toBeInstanceOf(Function);
-    expect(catFilter.name).toBe('CatFilter');
+    expect(catFilter.name).toBe("CatFilter");
   });
 
-  it('Should create a FilterType From a given class and add it to storage', () => {
+  it("should create a FilterType From a given class and add it to storage", () => {
     class Cat {}
     storage.getOrCreateFilterType(Cat);
     const catFilter = storage.getOrCreateFilterType(Cat);
     expect(catFilter).toBeInstanceOf(Function);
   });
 
-  it('Should add field to metadata', () => {
+  it("should create filter type and add field to metadata", () => {
     class Cat {}
 
     const fieldMetadata = new FieldMetadata({
-      name: 'name',
-      originalName: 'name',
+      name: "name",
+      originalName: "name",
       type: String,
-      description: 'A pretty orange kitten',
+      description: "A pretty orange kitten",
       isArray: false,
       nullable: false,
     });
 
-    storage.addFieldMetadata(Cat, fieldMetadata);
+    storage.createFilterTypeFromField(Cat, fieldMetadata);
 
     const addClassFieldMetadata = TypeMetadataStorage.addClassFieldMetadata;
 
     if (jest.isMockFunction(addClassFieldMetadata)) {
-      expect(addClassFieldMetadata).toHaveBeenCalledTimes(1);
+      expect(addClassFieldMetadata).toBeCalledWith({
+        name: fieldMetadata.name,
+        description: fieldMetadata.description,
+        options: {
+          isArray: false,
+          nullable: true,
+        },
+        schemaName: fieldMetadata.name,
+        target: Cat,
+        typeFn: expect.any(Function),
+      });
+
+      const [calls] = addClassFieldMetadata.mock.calls;
+      const [params] = calls;
+
+      expect(params.typeFn()).toBe(StringFilter);
     }
   });
 
-  it('should index all fields by name', () => {
+  it("should index all fields by name", () => {
     class Cat {
       @FilterableField()
       name: string;
     }
 
-    // Load types from LazyMetadataStorage from '@nestjs/graphql' packages
     LazyMetadataStorage.load();
 
     storage.indexFieldsByName();
@@ -127,6 +142,6 @@ describe('filter type metadata storage tests', () => {
     const catFields = storage.fieldsToTypeIndexedByName.get(Cat);
 
     expect(catFields.size).toBe(4);
-    expect(catFields.get('name')).toBeInstanceOf(FieldMetadata);
+    expect(catFields.get("name")).toBeInstanceOf(FieldMetadata);
   });
 });

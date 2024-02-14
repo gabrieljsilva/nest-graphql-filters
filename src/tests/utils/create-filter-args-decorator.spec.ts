@@ -1,16 +1,16 @@
-import { Args } from '@nestjs/graphql';
-import { PipeTransform } from '@nestjs/common';
+import { Args } from "@nestjs/graphql";
+import { PipeTransform } from "@nestjs/common";
 
-import { FilterTypeMetadataStorage } from '../../types/filter-type-metadata-storage';
-import { createGetFilterOf } from '../../utils/create-get-filter-of';
-import { BidirectionalMap } from '../../types/bidirectional-map';
-import { MultiMap } from '../../types/multimap';
-import { createFilterArgsDecorator } from '../../utils/create-filter-args-decorator';
-import { createFilterableFieldDecorator } from '../../utils/create-filterable-field-decorator';
-import { FilterOf } from '../../types/filter-of.type';
+import { FilterTypeMetadataStorage } from "../../types/filter-type-metadata-storage";
+import { createGetFilterOf } from "../../utils/create-get-filter-of";
+import { BidirectionalMap } from "../../types/bidirectional-map";
+import { MultiMap } from "../../types/multimap";
+import { createFilterArgsDecorator } from "../../utils/create-filter-args-decorator";
+import { createFilterableFieldDecorator } from "../../utils/create-filterable-field-decorator";
+import { FilterOf } from "../../types/filter-of.type";
 
-jest.mock('@nestjs/graphql', () => {
-  const original = jest.requireActual('@nestjs/graphql');
+jest.mock("@nestjs/graphql", () => {
+  const original = jest.requireActual("@nestjs/graphql");
 
   return {
     ...original,
@@ -18,7 +18,7 @@ jest.mock('@nestjs/graphql', () => {
   };
 });
 
-describe('create filter args decorator tests', () => {
+describe("create filter args decorator tests", () => {
   let storage: FilterTypeMetadataStorage;
   let FilterableField: ReturnType<typeof createFilterableFieldDecorator>;
   let getFilterOf: ReturnType<typeof createGetFilterOf>;
@@ -42,7 +42,7 @@ describe('create filter args decorator tests', () => {
     }
   });
 
-  const options = { name: 'CatFilter', description: 'MyCatFilterQuery' };
+  const options = { name: "CatFilter", description: "MyCatFilterQuery" };
 
   class TestPipe implements PipeTransform {
     transform(value: any) {
@@ -50,7 +50,7 @@ describe('create filter args decorator tests', () => {
     }
   }
 
-  it('Should call "args" decorator with correct params and default options', () => {
+  it('should call "args" decorator with correct params and default options', () => {
     class Cat {
       @FilterableField()
       name: string;
@@ -64,10 +64,10 @@ describe('create filter args decorator tests', () => {
 
     if (jest.isMockFunction(Args)) {
       expect(Args).toBeCalledTimes(1);
-      expect(Args).toBeCalledWith('filters', {
+      expect(Args).toBeCalledWith("filters", {
         type: expect.any(Function),
         nullable: true,
-        name: 'filters',
+        name: "filters",
       });
 
       const catFilter = getFilterOf(Cat);
@@ -80,7 +80,7 @@ describe('create filter args decorator tests', () => {
     }
   });
 
-  it('Should call "args" decorator with correct params and custom options', () => {
+  it('should call "args" decorator with correct params and custom options', () => {
     class Cat {
       @FilterableField()
       name: string;
@@ -111,7 +111,7 @@ describe('create filter args decorator tests', () => {
     }
   });
 
-  it('Should call "args" decorator with correct params and custom options and pipes', () => {
+  it('should call "args" decorator with correct params and custom options and pipes', () => {
     class Cat {
       @FilterableField()
       name: string;

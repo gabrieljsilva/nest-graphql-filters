@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1707872370632" clover="3.2.0">
+  <project timestamp="1707872370632" name="All files">
+    <metrics statements="268" coveredstatements="268" conditionals="32" coveredconditionals="30" methods="61" coveredmethods="61" elements="361" coveredelements="359" complexity="0" loc="268" ncloc="268" packages="6" files="28" classes="28"/>
+    <package name="src">
+      <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="index.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/index.ts">
+        <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.constants">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="filter-type-map.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/constants/filter-type-map.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="primitive-types.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/constants/primitive-types.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.enums">
+      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <file name="comparison-operators.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/enums/comparison-operators.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+      <file name="logical-operations.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/enums/logical-operations.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="9" type="stmt"/>
+        <line num="3" count="9" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.filters">
+      <metrics statements="45" coveredstatements="45" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="boolean-filter.filter.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/filters/boolean-filter.filter.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="date-time.filter.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/filters/date-time.filter.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+      <file name="float-filter.filter.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/filters/float-filter.filter.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+      <file name="id-filter.filter.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/filters/id-filter.filter.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="int-filter.filter.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/filters/int-filter.filter.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+      <file name="string.filter.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/filters/string.filter.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+      </file>
+      <file name="timestamp.filter.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/filters/timestamp.filter.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.types">
+      <metrics statements="81" coveredstatements="81" conditionals="8" coveredconditionals="8" methods="27" coveredmethods="27"/>
+      <file name="bidirectional-map.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/types/bidirectional-map.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
+        <line num="7" count="18" type="stmt"/>
+        <line num="9" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="17" count="32" type="stmt"/>
+        <line num="18" count="32" type="stmt"/>
+        <line num="22" count="48" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="32" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+      </file>
+      <file name="field-metadata.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/types/field-metadata.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="24" count="49" type="stmt"/>
+        <line num="25" count="49" type="stmt"/>
+        <line num="26" count="49" type="stmt"/>
+        <line num="27" count="49" type="stmt"/>
+        <line num="28" count="49" type="stmt"/>
+        <line num="29" count="49" type="stmt"/>
+        <line num="30" count="49" type="stmt"/>
+      </file>
+      <file name="filter-options.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/types/filter-options.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+      <file name="filter-type-metadata-storage.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/types/filter-type-metadata-storage.ts">
+        <metrics statements="32" coveredstatements="32" conditionals="1" coveredconditionals="1" methods="10" coveredmethods="10"/>
+        <line num="1" count="9" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="9" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="22" count="16" type="stmt"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="24" count="16" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="49" count="7" type="stmt"/>
+        <line num="51" count="7" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="68" count="3" type="stmt"/>
+        <line num="73" count="15" type="stmt"/>
+        <line num="75" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="81" count="13" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="13" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="13" type="stmt"/>
+        <line num="90" count="13" type="stmt"/>
+        <line num="94" count="13" type="stmt"/>
+        <line num="96" count="13" type="stmt"/>
+        <line num="108" count="13" type="stmt"/>
+        <line num="120" count="13" type="stmt"/>
+        <line num="132" count="13" type="stmt"/>
+      </file>
+      <file name="multimap.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/types/multimap.ts">
+        <metrics statements="21" coveredstatements="21" conditionals="5" coveredconditionals="5" methods="7" coveredmethods="7"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
+        <line num="7" count="18" type="stmt"/>
+        <line num="11" count="52" type="stmt"/>
+        <line num="12" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="52" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="16" count="52" type="stmt"/>
+        <line num="17" count="52" type="stmt"/>
+        <line num="21" count="53" type="stmt"/>
+        <line num="22" count="53" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="53" type="stmt"/>
+        <line num="34" count="10" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utils">
+      <metrics statements="91" coveredstatements="91" conditionals="20" coveredconditionals="18" methods="28" coveredmethods="28"/>
+      <file name="create-enum-of-entity-fields.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-enum-of-entity-fields.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+      </file>
+      <file name="create-filter-args-decorator.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-filter-args-decorator.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+      </file>
+      <file name="create-filterable-entity-decorator.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-filterable-entity-decorator.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="3" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="create-filterable-field-decorator.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-filterable-field-decorator.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="11" coveredconditionals="9" methods="4" coveredmethods="4"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="30" count="14" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="39" count="11" type="stmt"/>
+        <line num="41" count="11" type="cond" truecount="3" falsecount="0"/>
+        <line num="45" count="11" type="stmt"/>
+        <line num="47" count="11" type="stmt"/>
+        <line num="48" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="62" count="6" type="stmt"/>
+        <line num="71" count="6" type="stmt"/>
+        <line num="72" count="6" type="stmt"/>
+        <line num="76" count="11" type="stmt"/>
+      </file>
+      <file name="create-get-field-metadata.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-get-field-metadata.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+      </file>
+      <file name="create-get-filter-of.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-get-filter-of.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="10" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+      </file>
+      <file name="create-get-indexed-fields.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-get-indexed-fields.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+      <file name="create-nest-filter-module.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-nest-filter-module.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+      <file name="create-orderable-entity-decorator.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/create-orderable-entity-decorator.ts">
+        <metrics statements="23" coveredstatements="23" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+      <file name="get-options-and-pipes.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/get-options-and-pipes.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="17" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+      </file>
+      <file name="map-by.ts" path="/home/gabriel/Documents/Projects/nest-graphql-filters/src/utils/map-by.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="20" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

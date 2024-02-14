@@ -17,7 +17,7 @@ describe("create nest filter module function tests", () => {
     storage.indexFieldsByName = jest.fn();
   });
 
-  it("Should create a nest filter module with given storage", () => {
+  it("should create a nest filter module with given storage", () => {
     const NestFilterModule = createNestFilterModule(storage);
     const instance = new NestFilterModule();
     instance.onModuleInit();
@@ -27,7 +27,7 @@ describe("create nest filter module function tests", () => {
     expect(storage.indexFieldsByName).toBeCalledTimes(1);
   });
 
-  it("Should create a dynamic instance of nest filter module by register method", () => {
+  it("should create a dynamic instance of nest filter module by register method", () => {
     const NestFilterModule = createNestFilterModule(storage);
     const instance = NestFilterModule.register("pg");
 

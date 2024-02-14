@@ -1,16 +1,16 @@
-import { Type } from '@nestjs/common';
+import { Type } from "@nestjs/common";
 import {
   GqlTypeReference,
   ReturnTypeFunc,
   ReturnTypeFuncValue,
-} from '@nestjs/graphql';
+} from "@nestjs/graphql";
 
-import { LazyMetadataStorage } from '@nestjs/graphql/dist/schema-builder/storages/lazy-metadata.storage';
-import { isFunction } from '@nestjs/common/utils/shared.utils';
-import { reflectTypeFromMetadata } from '@nestjs/graphql/dist/utils/reflection.utilts';
+import { LazyMetadataStorage } from "@nestjs/graphql/dist/schema-builder/storages/lazy-metadata.storage";
+import { isFunction } from "@nestjs/common/utils/shared.utils";
+import { reflectTypeFromMetadata } from "@nestjs/graphql/dist/utils/reflection.utilts";
 
-import { FieldMetadata } from '../types/field-metadata';
-import { FilterTypeMetadataStorage } from '../types/filter-type-metadata-storage';
+import { FieldMetadata } from "../types/field-metadata";
+import { FilterTypeMetadataStorage } from "../types/filter-type-metadata-storage";
 
 type FieldOptions = {
   name?: string;
@@ -51,7 +51,7 @@ export const createFilterableFieldDecorator = (
           typeFn,
           options: { isArray = false, nullable = false },
         } = reflectTypeFromMetadata({
-          metadataKey: isResolverMethod ? 'design:returntype' : 'design:type',
+          metadataKey: isResolverMethod ? "design:returntype" : "design:type",
           prototype: prototype,
           propertyKey: propertyKey,
           explicitTypeFn: returnTypeFunc,
@@ -68,9 +68,11 @@ export const createFilterableFieldDecorator = (
           originalName: propertyKey,
         });
 
-        storage.addFieldMetadata(filterInputType, fieldMetadata);
+        storage.addFieldMetadata(target, fieldMetadata);
+        storage.createFilterTypeFromField(filterInputType, fieldMetadata);
       };
 
+      // Execute the function in the LazyMetadataStorage context to get all dependencies loaded;
       LazyMetadataStorage.store(filterInputType, applyField, {
         isField: true,
       });

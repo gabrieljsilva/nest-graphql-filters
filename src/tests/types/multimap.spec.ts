@@ -1,7 +1,7 @@
-import { MultiMap } from '../../types/multimap';
-import { Type } from '@nestjs/common';
+import { MultiMap } from "../../types/multimap";
+import { Type } from "@nestjs/common";
 
-describe('Multimap tests', () => {
+describe("Multimap tests", () => {
   const multimap = new MultiMap<Type, Type>();
 
   // Use Object | Class | Function to keep memory ref
@@ -17,7 +17,7 @@ describe('Multimap tests', () => {
   multimap.add(Key2, Value3);
   multimap.add(Key2, Value4);
 
-  it('Should get all values key key', () => {
+  it("should get all values key key", () => {
     const values = multimap.getValuesByKey(Key1);
 
     expect(values.size).toBe(2);
@@ -28,20 +28,20 @@ describe('Multimap tests', () => {
     expect(values.has(Value4)).toBeFalsy();
   });
 
-  it('Should not add value if already exists', () => {
+  it("should not add value if already exists", () => {
     const values = multimap.getValuesByKey(Key1);
     multimap.add(Key1, Value1);
     expect(values.size).toBe(2);
   });
 
-  it('Should get all keys', () => {
+  it("should get all keys", () => {
     const keys = new Set(Array.from(multimap.keys()));
     expect(keys.size).toBe(2);
     expect(keys.has(Key1)).toBeTruthy();
     expect(keys.has(Key2)).toBeTruthy();
   });
 
-  it('Should get all values', () => {
+  it("should get all values", () => {
     const values = new Set(Array.from(multimap.values()));
     expect(values.size).toBe(4);
     expect(values.has(Value1)).toBeTruthy();
@@ -50,7 +50,7 @@ describe('Multimap tests', () => {
     expect(values.has(Value4)).toBeTruthy();
   });
 
-  it('Should get all entries', () => {
+  it("should get all entries", () => {
     const entries = multimap.entries();
     for (const [key, values] of entries) {
       for (const value of values) {
@@ -60,10 +60,10 @@ describe('Multimap tests', () => {
     }
   });
 
-  it('Should delete key when delete last value', () => {
+  it("should delete key when delete last value", () => {
     const multimap = new MultiMap();
-    multimap.add('key', 'value');
-    multimap.deleteByValue('value');
+    multimap.add("key", "value");
+    multimap.deleteByValue("value");
     const keys = Array.from(multimap.keys());
     expect(keys.length).toBe(0);
   });

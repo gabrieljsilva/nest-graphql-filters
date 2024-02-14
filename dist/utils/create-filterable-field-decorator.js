@@ -16,7 +16,7 @@ const createFilterableFieldDecorator = (storage) => {
             const applyField = () => {
                 const isResolverMethod = !!(descriptor && descriptor.value);
                 const { typeFn, options: { isArray = false, nullable = false }, } = (0, reflection_utilts_1.reflectTypeFromMetadata)({
-                    metadataKey: isResolverMethod ? 'design:returntype' : 'design:type',
+                    metadataKey: isResolverMethod ? "design:returntype" : "design:type",
                     prototype: prototype,
                     propertyKey: propertyKey,
                     explicitTypeFn: returnTypeFunc,
@@ -31,7 +31,8 @@ const createFilterableFieldDecorator = (storage) => {
                     description: fieldOptions?.description,
                     originalName: propertyKey,
                 });
-                storage.addFieldMetadata(filterInputType, fieldMetadata);
+                storage.addFieldMetadata(target, fieldMetadata);
+                storage.createFilterTypeFromField(filterInputType, fieldMetadata);
             };
             lazy_metadata_storage_1.LazyMetadataStorage.store(filterInputType, applyField, {
                 isField: true,

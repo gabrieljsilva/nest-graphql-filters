@@ -1,12 +1,12 @@
-import { InputType } from '@nestjs/graphql';
-import { FilterTypeMetadataStorage } from '../../types/filter-type-metadata-storage';
-import { BidirectionalMap } from '../../types/bidirectional-map';
-import { MultiMap } from '../../types/multimap';
-import { createFilterableEntityDecorator } from '../../utils/create-filterable-entity-decorator';
-import { createFilterableFieldDecorator } from '../../utils/create-filterable-field-decorator';
+import { InputType } from "@nestjs/graphql";
+import { FilterTypeMetadataStorage } from "../../types/filter-type-metadata-storage";
+import { BidirectionalMap } from "../../types/bidirectional-map";
+import { MultiMap } from "../../types/multimap";
+import { createFilterableEntityDecorator } from "../../utils/create-filterable-entity-decorator";
+import { createFilterableFieldDecorator } from "../../utils/create-filterable-field-decorator";
 
-jest.mock('@nestjs/graphql', () => {
-  const original = jest.requireActual('@nestjs/graphql');
+jest.mock("@nestjs/graphql", () => {
+  const original = jest.requireActual("@nestjs/graphql");
   const MockedInputTypeDecoratorImplementation = () => () => null;
 
   return {
@@ -15,7 +15,7 @@ jest.mock('@nestjs/graphql', () => {
   };
 });
 
-describe('create filterable entity decorator tests', () => {
+describe("create filterable entity decorator tests", () => {
   const storage = new FilterTypeMetadataStorage({
     typesToFilterMap: new BidirectionalMap(),
     fieldsByTarget: new MultiMap(),
@@ -25,7 +25,7 @@ describe('create filterable entity decorator tests', () => {
   const FilterableField = createFilterableFieldDecorator(storage);
   const FilterableEntity = createFilterableEntityDecorator(storage);
 
-  it('Should mark a class as InputType with default filter name', () => {
+  it("should mark a class as InputType with default filter name", () => {
     @FilterableEntity()
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     class Cat {
@@ -33,11 +33,11 @@ describe('create filterable entity decorator tests', () => {
       name: string;
     }
 
-    expect(InputType).toBeCalledWith('CatFilter');
+    expect(InputType).toBeCalledWith("CatFilter");
   });
 
-  it('Should mark a class as InputType with custom filter name', () => {
-    const customFilterName = 'kittenFilter';
+  it("should mark a class as InputType with custom filter name", () => {
+    const customFilterName = "kittenFilter";
 
     @FilterableEntity(customFilterName)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

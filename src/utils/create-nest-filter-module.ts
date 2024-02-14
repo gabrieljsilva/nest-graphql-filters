@@ -7,7 +7,10 @@ import { LazyMetadataStorage } from "@nestjs/graphql/dist/schema-builder/storage
 export const createNestFilterModule = (storage: FilterTypeMetadataStorage) => {
   return class NestFilterModule implements OnModuleInit {
     onModuleInit() {
+      // Trick to load entities before the module initializes;
+      // It may break in the future.
       LazyMetadataStorage.load();
+
       storage.indexFieldsByName();
     }
 

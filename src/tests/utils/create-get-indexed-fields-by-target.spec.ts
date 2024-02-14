@@ -23,7 +23,7 @@ describe("create get indexed fields by target tests", () => {
     getIndexedFieldsByTarget = createGetIndexedFields(storage);
   });
 
-  it("Should get all field metadata from a filterable entity", () => {
+  it("should get all field metadata from a filterable entity", () => {
     class Cat {
       @FilterableField()
       name: string;

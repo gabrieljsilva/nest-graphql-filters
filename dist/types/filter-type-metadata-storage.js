@@ -21,9 +21,23 @@ class FilterTypeMetadataStorage {
         this.fieldsToTypeIndexedByName = params.fieldsToTypeIndexedByName;
     }
     addFieldMetadata(target, field) {
+        this.fieldsByTarget.add(target, field);
+    }
+    createTypeFromField(target, field) {
+        graphql_1.TypeMetadataStorage.addClassFieldMetadata({
+            name: field.originalName,
+            schemaName: field.name,
+            options: {
+                isArray: false,
+                nullable: true,
+            },
+            target: target,
+            typeFn: () => field.type,
+            description: field.description,
+        });
+    }
+    createFilterTypeFromField(target, field) {
         const fieldFilterType = this.typesToFilterMap.getValueByKey(field.type);
-        const originalType = this.typesToFilterMap.getKeyByValue(target);
-        this.fieldsByTarget.add(originalType, field);
         graphql_1.TypeMetadataStorage.addClassFieldMetadata({
             name: field.originalName,
             schemaName: field.name,
@@ -39,7 +53,7 @@ class FilterTypeMetadataStorage {
     indexFieldsByName() {
         const typeFieldsMap = this.fieldsByTarget.entries();
         for (const [type, fields] of typeFieldsMap) {
-            const mappedFields = (0, map_by_1.mapBy)(fields, 'name');
+            const mappedFields = (0, map_by_1.mapBy)(fields, "name");
             this.fieldsToTypeIndexedByName.set(type, mappedFields);
         }
     }
@@ -62,7 +76,7 @@ class FilterTypeMetadataStorage {
             (0, graphql_1.Field)(() => FilterInputType, { nullable: true }),
             __metadata("design:type", FilterInputType)
         ], FilterInputType.prototype, "_NOT", void 0);
-        Object.defineProperty(FilterInputType, 'name', {
+        Object.defineProperty(FilterInputType, "name", {
             value: `${target.name}Filter`,
         });
         this.typesToFilterMap.set(target, FilterInputType);
