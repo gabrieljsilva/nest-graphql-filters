@@ -7,12 +7,6 @@ const createNestFilterModule = (storage) => {
     return class NestFilterModule {
         onModuleInit() {
             lazy_metadata_storage_1.LazyMetadataStorage.load();
-            for (const [cls, fields] of storage["fieldsByTarget"].entries()) {
-                console.log(cls);
-                fields.forEach((field) => {
-                    console.log("---", field.name, field.type);
-                });
-            }
             storage.indexFieldsByName();
         }
         static register(databaseProvider) {

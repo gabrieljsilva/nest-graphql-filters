@@ -1,6 +1,6 @@
 {
   "name": "@gabrieljsilva/nest-graphql-filters",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Generate filters in a simple, automatic, and standardized way in the @nestjs framework and @nestjs/graphql using decorators.",
   "author": "gabrieljsilva",
   "private": false,
@@ -20,7 +20,7 @@
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/graphql": "^12.0.10",
-    "graphql": "16.8.1",
+    "graphql": "^16.8.1",
     "reflect-metadata": "^0.2.1"
   },
   "dependencies": {
